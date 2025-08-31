@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Fonts Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;600;800&family=Playfair+Display:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #3A7BD5, #00D2FF);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin: 25px 0 15px;
+            color: #2c3e50;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #fdbb2d;
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+            margin: 20px 0 10px;
+            color: #3A7BD5;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        p {
+            margin: 15px 0;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        .section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .font-property {
+            margin: 25px 0;
+            padding: 20px;
+            border-left: 5px solid #00D2FF;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .example {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .example-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+        
+        .code {
+            font-family: 'Source Code Pro', monospace;
+            background: #2c3e50;
+            color: #00D2FF;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .font-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .font-card {
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease;
+        }
+        
+        .font-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .interactive {
+            background: linear-gradient(135deg, #3A7BD5, #00D2FF);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            margin: 25px 0;
+        }
+        
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .control-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+        }
+        
+        select, input[type="color"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: white;
+        }
+        
+        .live-preview {
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin: 20px 0;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .font-family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .font-family-item {
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .font-family-item:hover {
+            background: #e9ecef;
+            border-color: #00D2FF;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #6c757d;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .example {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Fonts Complete Guide</h1>
+            <p>Learn how to use fonts in CSS to create beautiful typography</p>
+        </header>
+        
+        <div class="section">
+            <h2>Font Properties</h2>
+            <p>CSS provides several properties to control the appearance of text. Here are the most important ones:</p>
+            
+            <div class="font-property">
+                <h3>font-family</h3>
+                <p>Specifies the font for an element. It's a prioritized list of font family names.</p>
+                <div class="code">font-family: "Gill Sans", sans-serif;</div>
+                <div class="example">
+                    <div class="example-box" style="font-family: 'Gill Sans', sans-serif;">
+                        This text uses Gill Sans font
+                    </div>
+                    <div class="example-box" style="font-family: 'Times New Roman', serif;">
+                        This text uses Times New Roman font
+                    </div>
+                </div>
+            </div>
+            
+            <div class="font-property">
+                <h3>font-size</h3>
+                <p>Sets the size of the font. Can be specified in pixels, ems, rems, percentages, or other units.</p>
+                <div class="code">font-size: 24px;</div>
+                <div class="example">
+                    <div class="example-box" style="font-size: 16px;">
+                        Size 16px
+                    </div>
+                    <div class="example-box" style="font-size: 24px;">
+                        Size 24px
+                    </div>
+                    <div class="example-box" style="font-size: 32px;">
+                        Size 32px
+                    </div>
+                </div>
+            </div>
+            
+            <div class="font-property">
+                <h3>font-weight</h3>
+                <p>Sets the weight (or boldness) of the font. Values range from 100 to 900, or keywords like normal and bold.</p>
+                <div class="code">font-weight: bold;</div>
+                <div class="example">
+                    <div class="example-box" style="font-weight: 300;">
+                        Weight 300 (Light)
+                    </div>
+                    <div class="example-box" style="font-weight: 400;">
+                        Weight 400 (Normal)
+                    </div>
+                    <div class="example-box" style="font-weight: 700;">
+                        Weight 700 (Bold)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="font-property">
+                <h3>font-style</h3>
+                <p>Specifies the font style for text. Most commonly used for italic text.</p>
+                <div class="code">font-style: italic;</div>
+                <div class="example">
+                    <div class="example-box" style="font-style: normal;">
+                        Normal style
+                    </div>
+                    <div class="example-box" style="font-style: italic;">
+                        Italic style
+                    </div>
+                    <div class="example-box" style="font-style: oblique;">
+                        Oblique style
+                    </div>
+                </div>
+            </div>
+            
+            <div class="font-property">
+                <h3>line-height</h3>
+                <p>Sets the amount of space used for lines, such as in text. It's often used to set the vertical rhythm of text.</p>
+                <div class="code">line-height: 1.6;</div>
+                <div class="example">
+                    <div class="example-box" style="line-height: 1;">
+                        Line height 1.0 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                    <div class="example-box" style="line-height: 1.6;">
+                        Line height 1.6 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                    <div class="example-box" style="line-height: 2.5;">
+                        Line height 2.5 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Web Safe Fonts</h2>
+            <p>These fonts are widely available across different operating systems and devices.</p>
+            
+            <div class="font-family-grid">
+                <div class="font-family-item" style="font-family: Arial, sans-serif;">Arial</div>
+                <div class="font-family-item" style="font-family: Helvetica, sans-serif;">Helvetica</div>
+                <div class="font-family-item" style="font-family: 'Times New Roman', serif;">Times New Roman</div>
+                <div class="font-family-item" style="font-family: Georgia, serif;">Georgia</div>
+                <div class="font-family-item" style="font-family: 'Courier New', monospace;">Courier New</div>
+                <div class="font-family-item" style="font-family: Verdana, sans-serif;">Verdana</div>
+                <div class="font-family-item" style="font-family: Tahoma, sans-serif;">Tahoma</div>
+                <div class="font-family-item" style="font-family: 'Trebuchet MS', sans-serif;">Trebuchet MS</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Google Fonts</h2>
+            <p>Google Fonts offers hundreds of free fonts that can be easily added to your website.</p>
+            
+            <div class="font-preview">
+                <div class="font-card" style="font-family: 'Roboto', sans-serif;">
+                    <h3>Roboto</h3>
+                    <p>Roboto has a dual nature. It has a mechanical skeleton and the forms are largely geometric.</p>
+                </div>
+                
+                <div class="font-card" style="font-family: 'Montserrat', sans-serif;">
+                    <h3>Montserrat</h3>
+                    <p>The old posters and signs in the traditional Montserrat neighborhood of Buenos Aires inspired this font.</p>
+                </div>
+                
+                <div class="font-card" style="font-family: 'Playfair Display', serif;">
+                    <h3>Playfair Display</h3>
+                    <p>Playfair is a transitional design. While it lends a calligraphic feel, the design is actually chiseled.</p>
+                </div>
+                
+                <div class="font-card" style="font-family: 'Source Code Pro', monospace;">
+                    <h3>Source Code Pro</h3>
+                    <p>Source Code Pro is a set of monospaced OpenType fonts that have been designed to work well in coding environments.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="interactive">
+            <h2>Interactive Font Playground</h2>
+            <p>Adjust the controls below to see how different font properties affect text appearance.</p>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label for="fontFamily">Font Family:</label>
+                    <select id="fontFamily">
+                        <option value="'Roboto', sans-serif">Roboto</option>
+                        <option value="'Montserrat', sans-serif">Montserrat</option>
+                        <option value="'Playfair Display', serif">Playfair Display</option>
+                        <option value="'Source Code Pro', monospace">Source Code Pro</option>
+                        <option value="Arial, sans-serif">Arial</option>
+                        <option value="'Times New Roman', serif">Times New Roman</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="fontSize">Font Size: <span id="fontSizeValue">20px</span></label>
+                    <input type="range" id="fontSize" min="10" max="40" value="20">
+                </div>
+                
+                <div class="control-group">
+                    <label for="fontWeight">Font Weight: <span id="fontWeightValue">400</span></label>
+                    <input type="range" id="fontWeight" min="100" max="900" step="100" value="400">
+                </div>
+                
+                <div class="control-group">
+                    <label for="lineHeight">Line Height: <span id="lineHeightValue">1.6</span></label>
+                    <input type="range" id="lineHeight" min="1" max="3" step="0.1" value="1.6">
+                </div>
+                
+                <div class="control-group">
+                    <label for="fontColor">Font Color:</label>
+                    <input type="color" id="fontColor" value="#333333">
+                </div>
+                
+                <div class="control-group">
+                    <label for="fontStyle">Font Style:</label>
+                    <select id="fontStyle">
+                        <option value="normal">Normal</option>
+                        <option value="italic">Italic</option>
+                        <option value="oblique">Oblique</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="live-preview" id="livePreview">
+                <p>The quick brown fox jumps over the lazy dog. 1234567890</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Font Loading Best Practices</h2>
+            <p>To ensure your fonts load quickly and don't cause layout shifts, follow these best practices:</p>
+            
+            <div class="code">
+/* Preload critical fonts */
+@font-face {
+    font-family: 'MyFont';
+    src: url('myfont.woff2') format('woff2');
+    font-display: swap; /* Optional: controls how fonts are displayed */
+}
+
+/* Use font-display: swap for better performance */
+body {
+    font-family: 'MyFont', sans-serif;
+}
+            </div>
+            
+            <ul>
+                <li>Use WOFF2 format for better compression</li>
+                <li>Preload critical fonts</li>
+                <li>Use font-display: swap to avoid invisible text</li>
+                <li>Limit the number of font weights and styles you use</li>
+                <li>Consider using system fonts for better performance</li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>CSS Fonts Guide | Created with HTML, CSS, and JavaScript</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all interactive controls
+            const fontFamily = document.getElementById('fontFamily');
+            const fontSize = document.getElementById('fontSize');
+            const fontSizeValue = document.getElementById('fontSizeValue');
+            const fontWeight = document.getElementById('fontWeight');
+            const fontWeightValue = document.getElementById('fontWeightValue');
+            const lineHeight = document.getElementById('lineHeight');
+            const lineHeightValue = document.getElementById('lineHeightValue');
+            const fontColor = document.getElementById('fontColor');
+            const fontStyle = document.getElementById('fontStyle');
+            const livePreview = document.getElementById('livePreview');
+            
+            // Update font size value display
+            fontSize.addEventListener('input', function() {
+                fontSizeValue.textContent = `${this.value}px`;
+                updatePreview();
+            });
+            
+            // Update font weight value display
+            fontWeight.addEventListener('input', function() {
+                fontWeightValue.textContent = this.value;
+                updatePreview();
+            });
+            
+            // Update line height value display
+            lineHeight.addEventListener('input', function() {
+                lineHeightValue.textContent = this.value;
+                updatePreview();
+            });
+            
+            // Add event listeners to all controls
+            fontFamily.addEventListener('change', updatePreview);
+            fontColor.addEventListener('input', updatePreview);
+            fontStyle.addEventListener('change', updatePreview);
+            
+            // Function to update the live preview
+            function updatePreview() {
+                livePreview.style.fontFamily = fontFamily.value;
+                livePreview.style.fontSize = `${fontSize.value}px`;
+                livePreview.style.fontWeight = fontWeight.value;
+                livePreview.style.lineHeight = lineHeight.value;
+                livePreview.style.color = fontColor.value;
+                livePreview.style.fontStyle = fontStyle.value;
+            }
+            
+            // Initialize the preview
+            updatePreview();
+        });
+    </script>
+</body>
+</html>
